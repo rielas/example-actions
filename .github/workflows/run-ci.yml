@@ -6,6 +6,7 @@ on:
     - crawler
     - har-file
     - swagger
+    - brokencrystals
   pull_request:
     branches: [ main ]
 
@@ -31,6 +32,7 @@ jobs:
           sudo docker-compose --env-file=.env up -d
           sudo docker-compose config
       - run: sleep 10s
+      - run: sudo docker-compose logs
       - name: Start Nexploit Scan 🏁
         id: start
         run: |
